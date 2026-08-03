@@ -1,22 +1,48 @@
-# GGScore
+# GGScore — CS2 Match Data API
 
-**CS2 Match Data API** — structured JSON for played and upcoming Counter-Strike 2 matches.
+**Free / paid REST API** for Counter-Strike 2 **played match results** and **upcoming fixtures** — JSON over HTTPS, `X-API-Key` auth. Build Discord bots, Telegram bots, trackers, and dashboards **without scraping** scoreboard HTML.
 
 | | |
 |--|--|
-| Product | [ggscore.net](https://ggscore.net) |
-| Docs | [ggscore.net/docs](https://ggscore.net/docs) |
-| Get API key | [ggscore.net](https://ggscore.net) (Free tier to prototype) |
+| **Website** | [ggscore.net](https://ggscore.net) |
+| **API docs** | [ggscore.net/docs](https://ggscore.net/docs) |
+| **Get API key** | [Sign up · Free tier](https://ggscore.net) |
+| **Base URL** | `https://api.ggscore.net` |
 
-## Public examples
+## Why this org exists
 
-Minimal bots that call the GGScore REST API (`X-API-Key`):
+Developers search for **CS2 API**, **CS2 match data**, **Discord bot CS2 scores**, **Telegram CS2 schedule**, and **HLTV scrape alternatives**. These public repos are minimal, MIT-licensed examples that call the live GGScore endpoints:
 
-- **[discord-cs2-bot](https://github.com/ggscore-org/discord-cs2-bot)** — Discord `/results`
-- **[telegram-cs2-bot](https://github.com/ggscore-org/telegram-cs2-bot)** — Telegram `/results` + `/schedule`
+- `GET /api/v2/matches` — finished CS2 matches  
+- `GET /api/v2/upcoming_matches` — scheduled fixtures  
 
-Point `CS2_MATCH_API_BASE` at `https://api.ggscore.net` (default) and set `CS2_MATCH_API_KEY` from the cabinet.
+## Public repositories
 
-## Platform
+| Repo | What it does |
+|------|----------------|
+| [**discord-cs2-bot**](https://github.com/ggscore-org/discord-cs2-bot) | Discord.js slash command `/results` — recent CS2 scores via GGScore |
+| [**telegram-cs2-bot**](https://github.com/ggscore-org/telegram-cs2-bot) | Python bot `/results` + `/schedule` — played + upcoming CS2 matches |
 
-Product source (`web` / `api`) lives in **private** repositories in this organization.
+```bash
+# Same auth for every example
+export CS2_MATCH_API_KEY="your-key-from-ggscore-cabinet"
+export CS2_MATCH_API_BASE="https://api.ggscore.net"   # default
+```
+
+## Quickstart (curl)
+
+```bash
+curl -sS -H "X-API-Key: $CS2_MATCH_API_KEY" \
+  "https://api.ggscore.net/api/v2/matches?page=1&limit=5"
+```
+
+More languages (Node, Python, Go, …): [API documentation](https://ggscore.net/docs).  
+Guides: [CS2 Match Data API](https://ggscore.net/guides/cs2-match-data-api) · [Discord bot walkthrough](https://ggscore.net/blog/cs2-discord-bot-api-guide).
+
+## Keywords
+
+`CS2 API` · `Counter-Strike 2 match data` · `esports REST API` · `CS2 Discord bot` · `CS2 Telegram bot` · `match results JSON` · `upcoming CS2 fixtures` · `no scraping`
+
+## Private platform
+
+Product source for ggscore.net (`web` + `api`) is **private** in this organization (`platform`). Public repos above are examples only.
