@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="https://ggscore.net"><img src="docs/banner.jpg" alt="GGScore — CS2 Match Data API" width="800" /></a>
+</p>
+
+<p align="center">
+  <a href="https://ggscore.net"><img src="docs/icon.png" alt="GGScore" width="72" height="72" /></a>
+</p>
+
 # GGScore — CS2 Match Data API
 
 **Free / paid REST API** for Counter-Strike 2 **played match results** and **upcoming fixtures** — JSON over HTTPS, `X-API-Key` auth. Build Discord bots, Telegram bots, trackers, and dashboards **without scraping** scoreboard HTML.
